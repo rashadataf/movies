@@ -1,0 +1,6 @@
+/* style for the header */
+.Header {
+    background-color: var(--primary-color);
+    height: 95vh;
+    padding: var(--global-padding);
+}

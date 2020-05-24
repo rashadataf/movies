@@ -1,12 +1,30 @@
+/* Global variables to use them through the whole the project */
+:root {
+  --primary-color: #041424;
+  --primary-text-color: #fff;
+  --secondary-color: #3a8bdb;
+  --global-padding: 32px;
+  --global-marging: 16px;
+  --global-inner-padding: 16px;
+}
+
 /* Global CSS Rules */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* Body Element Style */
 body {
   width: 100vw;
+  height: 100vh;
   font-family: "Times New Roman",sans-serif;
+  color: var(--primary-text-color);
+}
+
+/* the root element in our project */
+#root {
+  width: 100%;
 }

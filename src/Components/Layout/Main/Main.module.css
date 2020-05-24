@@ -1,0 +1,6 @@
+/* style for the main element */
+.Main {
+    background-color: var(--secondary-color);
+    margin: var(--global-marging);
+    padding: var(--global-inner-padding);
+}

@@ -1,0 +1,5 @@
+/* style for the footer */
+.Footer {
+    background-color: var(--primary-color);
+    padding: var(--global-padding);
+}
