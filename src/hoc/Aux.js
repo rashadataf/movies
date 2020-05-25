@@ -1,5 +1,3 @@
-import React from "react";
-
 // Aux is a height-order-component (hoc)
 // it's job to wrap other components and elements
 // so that the linter won't give us an error while

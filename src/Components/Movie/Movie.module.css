@@ -1,0 +1,101 @@
+/* style for the box which contains the movie thumb */
+.MovieContainer {
+    width: 25%;
+    height: 450px;
+    margin: 8px 0;
+    padding: 16px;
+}
+
+/* the movie box style */
+.Movie {
+    width: 100%;
+    height: 80%;
+    background-color: var(--movie-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    border: 5px solid var(--primary-color);
+}
+
+/* style for the movie information */
+.Movie .MovieInfo {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition: opacity 300ms;
+}
+
+/* style for the button in the movie info */
+.MovieInfo .MovieInfoButton {
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: var(--button-color);
+    color: var(--primary-text-color);
+    font-size: 1.2rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 300ms;
+    transition-delay: 100ms;
+}
+
+/* when hovering over a movie the info will affected */
+.Movie:hover .MovieInfo {
+    opacity: 1;
+}
+
+/* when hovering over a movie the info button will affected */
+.Movie:hover .MovieInfo .MovieInfoButton {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* the image in the movie */
+.Movie img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* the name and year of movie */
+.MovieContainer .MovieNameYear {
+    margin-top: 4px;
+}
+
+/* the name of the movie */
+.MovieContainer .MovieNameYear .MovieName {
+    font-weight: bold;
+}
+
+/* the year of the movie */
+.MovieContainer .MovieNameYear .MovieYear {
+    font-style: oblique;
+}
+
+/* for small mobile devices */
+@media (max-width: 350px) {
+    .MovieContainer {
+        width: 100% !important;
+    }
+}
+
+/* for tablets and medium devices */
+@media (max-width: 768px) {
+    .MovieContainer {
+        width: 50%;
+    }
+}

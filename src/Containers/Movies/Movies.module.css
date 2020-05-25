@@ -1,0 +1,6 @@
+/* style for the wrapper of movies */
+.Movies {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}

@@ -1,11 +1,13 @@
 /* Global variables to use them through the whole the project */
 :root {
-  --primary-color: #041424;
+  --primary-color: #2a5178;
   --primary-text-color: #fff;
-  --secondary-color: #3a8bdb;
+  --secondary-color: #00060c;
+  --movie-color: #123;
   --global-padding: 32px;
   --global-marging: 16px;
   --global-inner-padding: 16px;
+  --button-color: #0a950a;
 }
 
 /* Global CSS Rules */
