@@ -9,6 +9,5 @@
     background-color: var(--secondary-color);
     border-bottom: 1px solid #7e9bb8;
     display: flex;
-    justify-content: space-around;
     align-items: center;
 }
