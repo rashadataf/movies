@@ -1,24 +1,23 @@
 import React from "react";
 import classes from './Movie.module.css';
-
+import {IMAGE_POSTER_SIZE, IMAGE_BASE_URL} from '../../config';
 // Movie component represents the movie with
 // it's own information and details
 const Movie = (props) => {
-    console.log(props.details)
+    // console.log(props.details)
     return (
         <div className={classes.MovieContainer}>
             <div className={classes.Movie}>
                 <div className={classes.MovieInfo}>
-                    <p></p>
-                    <p>{props.details.genre.slice(0,2).join(' / ')}</p>
-                    <p>{props.details.rating}</p>
+                    <p className={classes.MovieInfoAverage}><img src={require('../../assets/imdb.png')} /><br/>{props.details.vote_average}</p>
+                    <p className={classes.MovieInfoGenre}>{props.genres.slice(0,2).join(' / ')}</p>
                     <button className={classes.MovieInfoButton}>Details</button>
                 </div>
-                <img src={require(`../../assets/${props.details.image}`)} alt="" />
+                <img src={`${IMAGE_BASE_URL}${IMAGE_POSTER_SIZE}/${props.details.poster_path}`} alt="" className={classes.MovieImage} />
             </div>
             <div className={classes.MovieNameYear}>
-                <p className={classes.MovieName}>{props.details.title}</p>
-                <p className={classes.MovieYear}>{props.details.year}</p>
+                <p className={classes.MovieName} title={props.details.title}>{props.details.title}</p>
+                <p className={classes.MovieYear}>{props.details.release_date.toString().slice(0,4)}</p>
             </div>
         </div>
     );
