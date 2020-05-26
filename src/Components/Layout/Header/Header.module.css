@@ -1,6 +1,8 @@
 /* style for the header */
 .Header {
+    width: 100%;
     background-color: var(--primary-color);
-    height: 95vh;
+    height: 85vh;
     padding: var(--global-padding);
+    margin-top: 10vh;
 }

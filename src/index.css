@@ -15,7 +15,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 /* Body Element Style */
@@ -24,6 +23,8 @@ body {
   height: 100vh;
   font-family: "Times New Roman",sans-serif;
   color: var(--primary-text-color);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden !important;
 }
 
 /* the root element in our project */
