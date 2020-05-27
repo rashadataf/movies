@@ -1,12 +1,12 @@
 import React from "react";
 import classes from './Main.module.css';
-import Movies from "../../../Containers/Movies/Movies";
+import Movies from "../../Components/Movies/Movies";
 
 // the Main component represents where
 // the movies are going to displayed
-const Main = () => (
+const Main = (props) => (
     <main className={classes.Main}>
-        <Movies />
+        <Movies movies={props.movies} genres={props.genres} />
     </main>
 );
 

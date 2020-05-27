@@ -1,6 +1,6 @@
 /* Global variables to use them through the whole the project */
 :root {
-  --primary-color: #2a5178;
+  --primary-color: rgba(42, 81, 120, 0.77);
   --primary-text-color: #fff;
   --secondary-color: #00060c;
   --movie-color: #123;
