@@ -16,7 +16,7 @@ const Movie = (props) => (
             </div>
             <div className={classes.MovieNameYear}>
                 <p className={classes.MovieName} title={props.details.title}>{props.details.title}</p>
-                <p className={classes.MovieYear}>{props.details.release_date.toString().slice(0,4)}</p>
+                <p className={classes.MovieYear}>{props.details.release_date ? props.details.release_date.toString().slice(0,4) : ''}</p>
             </div>
         </div>
     );

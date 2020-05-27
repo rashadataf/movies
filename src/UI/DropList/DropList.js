@@ -11,7 +11,7 @@ const DropList = (props) => {
     // travelling through the array of movies to handle the way of displaying
     moviesList.map(movie => {
         moviesToDraw.push(
-            <li className={classes.DropListItem}>
+            <li key={movie.id} className={classes.DropListItem}>
                 <img src={`${IMAGE_BASE_URL}${IMAGE_POSTER_SIZE}/${movie.poster_path}`} alt="movie poster" className={classes.DropListItemImage} />
                 <div style={{width: "100%"}}>
                     <p className={classes.DropListItemTitle}>{movie.title}</p>

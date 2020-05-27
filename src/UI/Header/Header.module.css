@@ -2,7 +2,11 @@
 .Header {
     width: 100%;
     background-color: var(--primary-color);
-    height: 85vh;
     padding: var(--global-padding);
     margin-top: 10vh;
+}
+
+/* style for the hero section */
+.HeaderHero {
+    height: 65vh;
 }

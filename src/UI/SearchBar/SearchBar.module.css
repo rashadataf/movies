@@ -6,8 +6,7 @@
 }
 
 /* style for input element and button in the search bar container */
-.SearchBar input,
-.SearchBar button{
+.SearchBar input{
     padding: 8px;
     margin: 0 8px;
     font-size: 1.07rem;
@@ -21,11 +20,4 @@
     color: var(--secondary-color);
     background-color: rgb(135, 187, 239);
     width: 60%;
-}
-
-/* style for the button in search bar */
-.SearchBar button {
-    background-color: #0a950a;
-    color: var(--primary-text-color);
-    font-weight: 600;
 }
