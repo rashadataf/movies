@@ -3,12 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from "react-router-dom";
+import {createStore, applyMiddleware} from 'redux';
+import {Provider} from 'react-redux';
+import thunk from "redux-thunk";
+import moviesReducer from "./store/reducers/moviesReducer";
+
+// create the store of our project with middleware to allow us execute
+// Asynchronous functions within it
+const store = createStore(moviesReducer,applyMiddleware(thunk));
 
 ReactDOM.render(
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <Provider store={store}>
+                <App />
+        </Provider>
     ,
   document.getElementById('root')
 );

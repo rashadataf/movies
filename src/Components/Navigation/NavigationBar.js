@@ -9,7 +9,7 @@ import SearchBar from "../../UI/SearchBar/SearchBar";
 const NavigationBar = (props) => (
     <nav className={classes.NavigationBar}>
         <Logo />
-        <SearchBar onSearchHandler={props.onSearchHandler} />
+        <SearchBar />
         <div>menu -> home -> contact us</div>
     </nav>
 );
