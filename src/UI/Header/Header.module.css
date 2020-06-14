@@ -2,12 +2,6 @@
 .Header {
     width: 100%;
     background-color: var(--primary-color);
-    padding: 10vh var(--global-padding) 0;
-}
-
-/* style for the hero section */
-.HeaderHero {
-    height: 65vh;
 }
 
 /* the style of the list of pages */

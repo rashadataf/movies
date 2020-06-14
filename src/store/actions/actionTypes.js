@@ -8,13 +8,16 @@ const DELETE_HOME_MOVIES = 'DELETE_HOME_MOVIES';
 const FETCH_SEARCH_RESULT = 'FETCH_SEARCH_RESULT';
 // to delete the movies from the search from the store
 const DELETE_SEARCH_RESULT = 'DELETE_SEARCH_RESULT';
+//
+const GET_NEXT_HERO_MOVIE = 'GET_NEXT_HERO_MOVIE';
 
 // make all the types in one object and export it
 const actionTypes = {
     FETCH_HOME_MOVIES,
     DELETE_HOME_MOVIES,
     FETCH_SEARCH_RESULT,
-    DELETE_SEARCH_RESULT
+    DELETE_SEARCH_RESULT,
+    GET_NEXT_HERO_MOVIE
 }
 
 export default actionTypes;

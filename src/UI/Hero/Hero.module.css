@@ -1,0 +1,25 @@
+/* style for the Hero section */
+.Hero {
+    height: 75vh;
+    margin-top: 10vh;
+    position: relative;
+}
+
+/* style for the section where the title and description of the hero */
+.HeroDetails {
+    position: absolute;
+    left: 1%;
+    bottom: 0;
+    padding: 16px;
+    max-width: 40%;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.39);
+    font-size: 1.1rem;
+    line-height: 1.9rem;
+    font-weight: 700;
+}
+
+ /* style for the description */
+ .HeroDescription{
+     margin-top: 8px;
+}

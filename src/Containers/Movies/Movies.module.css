@@ -1,5 +1,6 @@
 /* style for the wrapper of movies */
 .Movies {
+    margin-top: 10vh;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

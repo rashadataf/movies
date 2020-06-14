@@ -9,7 +9,11 @@ const saveFetchedMoviesAndGenres = (movies, genres) => {
         type: actionTypes.FETCH_HOME_MOVIES,
         payload: {
             movies: movies,
-            genres: genres
+            genres: genres,
+            heroMovie: {
+                movie: movies[0],
+                movieIndex: 0
+            }
         }
     }
 }
@@ -73,5 +77,13 @@ export const fetchSearchResult = (searchTerm, searchPage = 1) => {
 export const deleteSearchResult = () => {
     return {
         type: actionTypes.DELETE_SEARCH_RESULT
+    }
+}
+
+// get the next movie from the home movies to be the current
+// movie for the hero section
+export const getNextHeroMovie = () => {
+    return {
+        type: actionTypes.GET_NEXT_HERO_MOVIE
     }
 }
