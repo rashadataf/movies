@@ -11,7 +11,8 @@ const initialState = {
     heroMovie: {
         movie: null,
         movieIndex: -1
-    }
+    },
+    isLoading: true
 }
 
 // the reducer function which will handle the different types of actions
@@ -25,14 +26,16 @@ const moviesReducer = (state = initialState, action) => {
                 heroMovie: {
                     movie: action.payload.heroMovie.movie,
                     movieIndex: action.payload.heroMovie.movieIndex
-                }
+                },
+                isLoading: false
             }
         case actionTypes.FETCH_SEARCH_RESULT:
             return {
                 ...state,
                 searchResult: action.payload.searchResult,
                 searchTerm: action.payload.searchTerm,
-                isSearch: true
+                isSearch: true,
+                isLoading: false
             }
         case actionTypes.DELETE_SEARCH_RESULT: {
             const empty = [];
@@ -57,6 +60,11 @@ const moviesReducer = (state = initialState, action) => {
                 }
             }
         }
+        case actionTypes.CHANGE_TO_WAIT :
+            return {
+                ...state,
+                isLoading: true
+            }
         default:
             return state;
     }

@@ -29,7 +29,6 @@ const Hero = (props) => {
         clearTimeout(timer);
         timer = setTimeout(() => {
             props.getNextHeroMovie();
-            console.log(props.currentMovie.movie)
         },5000)
     }
     // if there is no timer

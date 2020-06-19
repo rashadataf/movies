@@ -3,6 +3,7 @@ import Movie from "../../Components/Movie/Movie";
 import classes from './Movies.module.css';
 import {connect} from 'react-redux';
 import {fetchHomeMovies} from "../../store/actions/actions";
+import Spinner from "../../UI/Spinner/Spinner";
 
 // Movies container represents where the movies are going
 // to displayed and the state of the movie
@@ -60,10 +61,19 @@ class Movies extends Component {
     }
 
     render() {
+        // make a variable to hold the content that will be draw
+        let draw = null;
+        // if there is a wait state draw the spinner
+        if (this.props.isLoading)
+            draw = <Spinner />
+        // else draw the movies we have
+        else
+            draw = this.moviesToDraw();
+
         return (
             <div className={classes.Movies}>
                 {
-                    this.moviesToDraw()
+                    draw
                 }
             </div>
         );
@@ -75,7 +85,9 @@ const mapStateToProps = state => {
     return {
         movies: state.movies,
         genres: state.genres,
-        searchResult: state.searchResult
+        searchResult: state.searchResult,
+        isSearch: state.isSearch,
+        isLoading: state.isLoading
     }
 }
 

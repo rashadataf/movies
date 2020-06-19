@@ -43,6 +43,13 @@ export const fetchHomeMovies = () => {
     }
 }
 
+// change the state to wait for the result to come
+const changToWait = () => {
+    return {
+        type: actionTypes.CHANGE_TO_WAIT
+    }
+}
+
 // save the fetched result of search to state
 const saveFetchedSearchResult = (movies, searchTerm) => {
     return {
@@ -57,6 +64,8 @@ const saveFetchedSearchResult = (movies, searchTerm) => {
 // async function to fetch the result of the search from the server
 export const fetchSearchResult = (searchTerm, searchPage = 1) => {
     return dispatch => {
+        // make the loading is true
+        dispatch(changToWait());
         // init url with null
         let url = null;
         // if we have some thing to search for

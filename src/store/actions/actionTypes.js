@@ -8,8 +8,10 @@ const DELETE_HOME_MOVIES = 'DELETE_HOME_MOVIES';
 const FETCH_SEARCH_RESULT = 'FETCH_SEARCH_RESULT';
 // to delete the movies from the search from the store
 const DELETE_SEARCH_RESULT = 'DELETE_SEARCH_RESULT';
-//
+// get the next film in the list of movies we have to display it as hero image
 const GET_NEXT_HERO_MOVIE = 'GET_NEXT_HERO_MOVIE';
+// make the state indicate to wait for the result
+const CHANGE_TO_WAIT = 'CHANGE_TO_WAIT';
 
 // make all the types in one object and export it
 const actionTypes = {
@@ -17,7 +19,8 @@ const actionTypes = {
     DELETE_HOME_MOVIES,
     FETCH_SEARCH_RESULT,
     DELETE_SEARCH_RESULT,
-    GET_NEXT_HERO_MOVIE
+    GET_NEXT_HERO_MOVIE,
+    CHANGE_TO_WAIT
 }
 
 export default actionTypes;
