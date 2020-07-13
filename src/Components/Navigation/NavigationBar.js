@@ -2,6 +2,7 @@ import React from "react";
 import classes from './NavigationBar.module.css';
 import Logo from "../../UI/Logo/Logo";
 import SearchBar from "../../UI/SearchBar/SearchBar";
+import NavigationItems from "./NavigationItems/NavigationItems";
 
 // the NavigationBar component will represent
 // the nav bar which will allow us
@@ -10,7 +11,7 @@ const NavigationBar = (props) => (
     <nav className={classes.NavigationBar}>
         <Logo />
         <SearchBar />
-        <div>menu -> home -> contact us</div>
+        <NavigationItems />
     </nav>
 );
 

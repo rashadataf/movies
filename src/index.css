@@ -27,6 +27,20 @@ body {
   overflow-x: hidden !important;
 }
 
+/* make global style for the anchor element */
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:active {
+  color: #0a950a;
+}
+
+a:visited {
+  color: springgreen;
+}
+
 /* the root element in our project */
 #root {
   width: 100%;
