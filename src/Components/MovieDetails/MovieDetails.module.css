@@ -1,0 +1,27 @@
+/* set the style of the movie details page */
+.MovieDetails {
+    margin-top: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* the image of the movie */
+.MovieImage {
+    width: 200px;
+    height: 250px;
+}
+
+/* the name, date, rate, and language style  */
+.MovieInfo {
+    margin-left: 16px;
+}
+
+/* style for all the direct children's of the info div */
+.MovieInfo > * {
+    margin-bottom: 8px;
+}
+
+/* style the overview of the movie */
+.MovieOverview {
+    margin-top: 8px;
+}

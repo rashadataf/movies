@@ -12,6 +12,8 @@ const DELETE_SEARCH_RESULT = 'DELETE_SEARCH_RESULT';
 const GET_NEXT_HERO_MOVIE = 'GET_NEXT_HERO_MOVIE';
 // make the state indicate to wait for the result
 const CHANGE_TO_WAIT = 'CHANGE_TO_WAIT';
+// select a specific movie to display it's information
+const SELECT_MOVIE = 'SELECT_MOVIE';
 
 // make all the types in one object and export it
 const actionTypes = {
@@ -20,7 +22,8 @@ const actionTypes = {
     FETCH_SEARCH_RESULT,
     DELETE_SEARCH_RESULT,
     GET_NEXT_HERO_MOVIE,
-    CHANGE_TO_WAIT
+    CHANGE_TO_WAIT,
+    SELECT_MOVIE
 }
 
 export default actionTypes;

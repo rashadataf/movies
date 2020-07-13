@@ -10,7 +10,6 @@ let timer = null;
 // Hero component is responsible for displaying the big hero image for the most
 // popular movies we have
 const Hero = (props) => {
-    console.log(props.currentMovie.movie);
     let title = null;
     let description = null;
     // create style object to change the background image for the hero by time
@@ -29,14 +28,13 @@ const Hero = (props) => {
         clearTimeout(timer);
         timer = setTimeout(() => {
             props.getNextHeroMovie();
-        },5000)
+        },15000)
     }
     // if there is no timer
     // create a new one
     else
         timer = setTimeout(() => {
         props.getNextHeroMovie();
-        console.log(props.currentMovie.movie)
     },1000)
         // path = `${IMAGE_BASE_URL}${IMAGE_BACKDROP_SIZE}/${props.currentMovie.movie.backdrop_path}`;
     return (

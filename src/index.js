@@ -7,6 +7,7 @@ import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from "redux-thunk";
 import moviesReducer from "./store/reducers/moviesReducer";
+import {BrowserRouter} from 'react-router-dom';
 
 // create the store of our project with middleware to allow us execute
 // Asynchronous functions within it
@@ -14,7 +15,9 @@ const store = createStore(moviesReducer,applyMiddleware(thunk));
 
 ReactDOM.render(
         <Provider store={store}>
+            <BrowserRouter>
                 <App />
+            </BrowserRouter>
         </Provider>
     ,
   document.getElementById('root')

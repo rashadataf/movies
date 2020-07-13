@@ -96,3 +96,13 @@ export const getNextHeroMovie = () => {
         type: actionTypes.GET_NEXT_HERO_MOVIE
     }
 }
+
+// select the wanted movie to display it's details
+export const selectMovie = (movie) => {
+    return {
+        type: actionTypes.SELECT_MOVIE,
+        payload: {
+            currentMovie: movie
+        }
+    }
+}

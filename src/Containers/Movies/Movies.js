@@ -2,8 +2,9 @@ import React, {Component} from "react";
 import Movie from "../../Components/Movie/Movie";
 import classes from './Movies.module.css';
 import {connect} from 'react-redux';
-import {fetchHomeMovies} from "../../store/actions/actions";
+import {fetchHomeMovies, selectMovie} from "../../store/actions/actions";
 import Spinner from "../../UI/Spinner/Spinner";
+import {withRouter} from 'react-router-dom';
 
 // Movies container represents where the movies are going
 // to displayed and the state of the movie
@@ -35,7 +36,7 @@ class Movies extends Component {
                             if (movie.genre_ids[i] === this.props.genres[j].id)
                                 movie_genres.push(this.props.genres[j].name)
                 // push the movies we want to draw to the array
-                movies.push(<Movie key={movie.id} details={movie} genres={movie_genres}/>)
+                movies.push(<Movie key={movie.id} details={movie} genres={movie_genres} click={this.movieClickHandler}/>)
             })
         // return the array of movies
         return movies;
@@ -60,6 +61,13 @@ class Movies extends Component {
         return moviesToDraw;
     }
 
+    // the function to handle the click on a single movie
+    movieClickHandler = (movie) => {
+        // console.log(movie,this.props.genres)
+        this.props.selectMovie(movie);
+        this.props.history.push(`/movie/${movie.id}`);
+    }
+
     render() {
         // make a variable to hold the content that will be draw
         let draw = null;
@@ -69,7 +77,6 @@ class Movies extends Component {
         // else draw the movies we have
         else
             draw = this.moviesToDraw();
-
         return (
             <div className={classes.Movies}>
                 {
@@ -95,8 +102,9 @@ const mapStateToProps = state => {
 // and push it to the props
 const mapDispatchToProps = dispatch => {
     return {
-        fetchHomeMovies: () => dispatch(fetchHomeMovies())
+        fetchHomeMovies: () => dispatch(fetchHomeMovies()),
+        selectMovie: (movie) => dispatch(selectMovie(movie))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Movies);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Movies));

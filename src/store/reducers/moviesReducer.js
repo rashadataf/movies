@@ -5,6 +5,7 @@ const initialState = {
     movies: [],
     genres: [],
     searchResult: [],
+    currentMovie: null,
     searchTerm: '',
     searchPage: 1,
     isSearch: false,
@@ -64,6 +65,11 @@ const moviesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: true
+            }
+        case actionTypes.SELECT_MOVIE :
+            return {
+                ...state,
+                currentMovie: action.payload.currentMovie
             }
         default:
             return state;
