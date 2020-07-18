@@ -13,7 +13,8 @@ const initialState = {
         movie: null,
         movieIndex: -1
     },
-    isLoading: true
+    isLoading: true,
+    isBackDrop: false
 }
 
 // the reducer function which will handle the different types of actions
@@ -36,7 +37,8 @@ const moviesReducer = (state = initialState, action) => {
                 searchResult: action.payload.searchResult,
                 searchTerm: action.payload.searchTerm,
                 isSearch: true,
-                isLoading: false
+                isLoading: false,
+                isBackDrop: false
             }
         case actionTypes.DELETE_SEARCH_RESULT: {
             const empty = [];
@@ -71,6 +73,14 @@ const moviesReducer = (state = initialState, action) => {
                 ...state,
                 currentMovie: action.payload.currentMovie
             }
+        case actionTypes.TOGGLE_BACK_DROP :
+        {
+            let isDrop = !state.isBackDrop;
+            return {
+                ...state,
+                isBackDrop: isDrop
+            }
+        }
         default:
             return state;
     }

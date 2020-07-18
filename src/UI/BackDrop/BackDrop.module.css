@@ -1,0 +1,22 @@
+/* style for the back-drop */
+.Drop {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(0, 6, 12, 0.95);
+}
+
+/* style for each child in the back-drop */
+.Drop > * {
+    margin: 10%;
+    text-align: left;
+}
+
+/* media for wide screens */
+@media screen and (min-width: 768px){
+    .Drop {
+        display: none;
+    }
+}

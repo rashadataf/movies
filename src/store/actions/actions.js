@@ -52,6 +52,8 @@ const changToWait = () => {
 
 // save the fetched result of search to state
 const saveFetchedSearchResult = (movies, searchTerm) => {
+    // write the search term to the input field
+    document.querySelector('input').value = searchTerm
     return {
         type: actionTypes.FETCH_SEARCH_RESULT,
         payload: {
@@ -104,5 +106,12 @@ export const selectMovie = (movie) => {
         payload: {
             currentMovie: movie
         }
+    }
+}
+
+// toggle the back_drop on/off
+export const toggleBackDrop = () => {
+    return {
+        type: actionTypes.TOGGLE_BACK_DROP
     }
 }

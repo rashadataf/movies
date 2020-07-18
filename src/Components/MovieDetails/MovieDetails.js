@@ -22,13 +22,13 @@ const MovieDetails = (props) => {
         // variable to hold the average of the movie
         let average = <p className={classes.MovieInfoAverage} key={4}><img src={require('../../assets/imdb.png')} alt="imdb logo" /><br/>{props.movie.vote_average}</p>
         // variable to hold the votes of the movie
-        let votes = <p key={5}>{props.movie.vote_count}</p>
+        // let votes = <p key={5}>{props.movie.vote_count}</p>
         // variable to hold the popularity of the movie
-        let popularity = <p key={6}>{props.movie.popularity}</p>
+        // let popularity = <p key={6}>{props.movie.popularity}</p>
         // variable to hold the language of the movie
-        let language = <p key={7} className={classes.MovieLanguage}>{props.movie.original_language}</p>
+        let language = <p key={5} className={classes.MovieLanguage}>{props.movie.original_language}</p>
         // variable to hold the overview of the movie
-        let overview = <p key={8} className={classes.MovieOverview}>{props.movie.overview}</p>
+        let overview = <p key={6} className={classes.MovieOverview}>{props.movie.overview}</p>
 
         // create the array of genres
         for (let i = 0;i < props.movie.genre_ids.length; i++){
@@ -41,9 +41,9 @@ const MovieDetails = (props) => {
         let movie_genres = <p key={9}>{genres.join('/')}</p>
         // push the elements into the array to draw them
         draw.push(
-            <div>{img}</div>,
-            <div className={classes.MovieInfo}>{title}{year}{movie_genres}{average}{language}</div>,
-            <div>{overview}</div>
+            <div key={1}>{img}</div>,
+            <div className={classes.MovieInfo} key={2}>{title}{year}{movie_genres}{average}{language}</div>,
+            <div key={3}>{overview}</div>
         )
     }
     // if there is no movie to show it's details return to the main page
@@ -57,6 +57,7 @@ const MovieDetails = (props) => {
 );
 }
 
+// function to get the state from the store and push it to the props
 const mapStateToProps = state => {
     return {
         movie: state.currentMovie,

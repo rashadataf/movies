@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import Movie from "../../Components/Movie/Movie";
 import classes from './Movies.module.css';
 import {connect} from 'react-redux';
-import {fetchHomeMovies, selectMovie} from "../../store/actions/actions";
+import {fetchHomeMovies, selectMovie, toggleBackDrop} from "../../store/actions/actions";
 import Spinner from "../../UI/Spinner/Spinner";
 import {withRouter} from 'react-router-dom';
 
@@ -15,6 +15,17 @@ class Movies extends Component {
         if (this.props.movies.length === 0) {
             this.props.fetchHomeMovies();
         }
+        // adding a listener to the resize event for the window global object
+        window.addEventListener('resize',() => {
+            // if the width > 768px
+            if (window.innerWidth > 768){
+                // if the back-drop is on
+                if (this.props.isBackDrop){
+                    // close the back-drop
+                    this.props.toggleBackDrop()
+                }
+            }
+        })
     }
 
     // a function to init movies so we take value from state
@@ -94,7 +105,8 @@ const mapStateToProps = state => {
         genres: state.genres,
         searchResult: state.searchResult,
         isSearch: state.isSearch,
-        isLoading: state.isLoading
+        isLoading: state.isLoading,
+        isBackDrop: state.isBackDrop
     }
 }
 
@@ -103,7 +115,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchHomeMovies: () => dispatch(fetchHomeMovies()),
-        selectMovie: (movie) => dispatch(selectMovie(movie))
+        selectMovie: (movie) => dispatch(selectMovie(movie)),
+        toggleBackDrop: () => dispatch(toggleBackDrop())
     }
 }
 

@@ -8,18 +8,50 @@
 /* style for the section where the title and description of the hero */
 .HeroDetails {
     position: absolute;
-    left: 1%;
+    left: 0;
     bottom: 0;
-    padding: 16px;
-    max-width: 40%;
+    padding: 8px;
+    max-width: 100%;
     color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.39);
+    background-color: rgba(0, 0, 0, 0.79);
     font-size: 1.1rem;
-    line-height: 1.9rem;
+    line-height: 1.2rem;
     font-weight: 700;
 }
 
  /* style for the description */
  .HeroDescription{
      margin-top: 8px;
+}
+
+ /* media query for small screens */
+ @media screen and (max-width: 350px) {
+     .HeroDetails {
+         font-size: .8rem;
+         padding: 0;
+         max-height: 150px;
+         line-height: .7rem;
+         overflow: scroll;
+     }
+ }
+/* media query for medium screens */
+@media screen and (max-width: 550px) {
+    .HeroDetails {
+        font-size: .9rem;
+        padding: 0;
+        max-height: 150px;
+        line-height: .9rem;
+        overflow: scroll;
+    }
+}
+
+/* media query for large screens */
+@media screen and (max-width: 850px) {
+    .HeroDetails {
+        padding: 8px;
+        font-size: 1rem;
+        max-height: 150px;
+        line-height: 1rem;
+        overflow: scroll;
+    }
 }

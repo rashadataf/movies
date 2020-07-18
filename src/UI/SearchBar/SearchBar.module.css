@@ -19,5 +19,12 @@
 .SearchBar input {
     color: var(--secondary-color);
     background-color: rgb(135, 187, 239);
-    width: 60%;
+    width: 70%;
+}
+
+/* media for small screens */
+@media screen and (max-width: 768px) {
+    .SearchBar {
+        display: none;
+    }
 }

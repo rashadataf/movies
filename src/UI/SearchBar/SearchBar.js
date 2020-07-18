@@ -6,7 +6,7 @@ import {fetchSearchResult, deleteSearchResult} from "../../store/actions/actions
 // SearchBar component represents the search bar when we can search for a specific
 // movie with specific attributes like: genre, year, rating, ...
 const SearchBar = (props) =>(
-        <div className={classes.SearchBar}>
+        <div className={classes.SearchBar} style={props.style}>
             <input
                 type="text"
                 onChange={(event) => {
@@ -26,6 +26,16 @@ const SearchBar = (props) =>(
         </div>
 );
 
+// function to get the state from the store and push it to the props
+const mapStateToProps = state => {
+    return {
+        searchTerm: state.searchTerm,
+        isBackDrop: state.isBackDrop
+    }
+}
+
+// function to get the actions that we can execute on the store
+// and push it to the props
 const mapDispatchToProps = dispatch => {
     return {
         fetchSearchResult: (searchTerm) => dispatch(fetchSearchResult(searchTerm)),
@@ -33,4 +43,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null,mapDispatchToProps)(SearchBar);
+export default connect(mapStateToProps,mapDispatchToProps)(SearchBar);
