@@ -50,15 +50,24 @@ const changToWait = () => {
     }
 }
 
+// clear the waiting status
+const clearWait = () => {
+    return {
+        type: actionTypes.CLEAR_WAIT
+    }
+}
+
 // save the fetched result of search to state
-const saveFetchedSearchResult = (movies, searchTerm) => {
+const saveFetchedSearchResult = (movies, searchTerm, total_pages, searchPage) => {
     // write the search term to the input field
     document.querySelector('input').value = searchTerm
     return {
         type: actionTypes.FETCH_SEARCH_RESULT,
         payload: {
             searchResult: movies,
-            searchTerm: searchTerm
+            searchTerm: searchTerm,
+            totalSearchPages: total_pages,
+            searchPage: searchPage
         }
     }
 }
@@ -77,8 +86,17 @@ export const fetchSearchResult = (searchTerm, searchPage = 1) => {
             fetch(url)
                 .then(response => response.json())
                 .then(response => {
+                    // if we have results to show
                     // update the state of searchedMovies with the results we get
-                    dispatch(saveFetchedSearchResult(response.results,searchTerm));
+                    if (response.results.length > 0)
+                        dispatch(saveFetchedSearchResult(response.results,searchTerm,response.total_pages,searchPage));
+                    // if we have nothing as a search result
+                    // clear the waiting status
+                    // clear any previous search results
+                    else {
+                        dispatch(clearWait())
+                        dispatch(deleteSearchResult())
+                    }
                 })
         }
     }

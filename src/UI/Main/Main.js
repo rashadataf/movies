@@ -9,7 +9,7 @@ import MovieDetails from "../../Components/MovieDetails/MovieDetails";
 const Main = () => (
     <main className={classes.Main}>
         {/* render the Movies component when we are in the root url */}
-        <Route path="/" exact render={() => <Movies />} />
+        <Route path="/movies" exact render={() => <Movies />} />
         {/* render the MovieDetails component when we are in the /movie/{id} url */}
         <Route path="/movie/:id" exact render={() => <MovieDetails /> } />
     </main>

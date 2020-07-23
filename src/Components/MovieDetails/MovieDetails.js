@@ -48,7 +48,7 @@ const MovieDetails = (props) => {
     }
     // if there is no movie to show it's details return to the main page
     else{
-        props.history.push('/');
+        props.history.push('/movies');
     }
     return (
         <div className={classes.MovieDetails}>

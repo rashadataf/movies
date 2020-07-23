@@ -3,6 +3,7 @@
     margin-top: 10vh;
     display: flex;
     flex-wrap: wrap;
+    min-height: 70.5vh;
 }
 
 /* the image of the movie */

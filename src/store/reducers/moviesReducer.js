@@ -8,6 +8,7 @@ const initialState = {
     currentMovie: null,
     searchTerm: '',
     searchPage: 1,
+    totalSearchPages: 0,
     isSearch: false,
     heroMovie: {
         movie: null,
@@ -36,6 +37,8 @@ const moviesReducer = (state = initialState, action) => {
                 ...state,
                 searchResult: action.payload.searchResult,
                 searchTerm: action.payload.searchTerm,
+                totalSearchPages: action.payload.totalSearchPages,
+                searchPage: action.payload.searchPage,
                 isSearch: true,
                 isLoading: false,
                 isBackDrop: false
@@ -46,7 +49,11 @@ const moviesReducer = (state = initialState, action) => {
                 ...state,
                 searchResult: empty,
                 searchTerm: '',
-                isSearch: false
+                isSearch: false,
+                searchPage: 1,
+                totalSearchPages: 0,
+                isBackDrop: false,
+                isLoading: false
             }
         }
         case actionTypes.GET_NEXT_HERO_MOVIE: {
@@ -67,6 +74,11 @@ const moviesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: true
+            }
+        case actionTypes.CLEAR_WAIT :
+            return {
+                ...state,
+                isLoading: false
             }
         case actionTypes.SELECT_MOVIE :
             return {

@@ -1,0 +1,56 @@
+/* Paginated List style */
+.PaginatedList {
+    position: fixed;
+    top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 8vh;
+    background-color: rgb(25, 45, 66);
+    z-index: 3;
+    list-style-type: none;
+    padding: 8px;
+}
+
+/* the list item in the list style */
+.PaginatedList li {
+    color: white;
+    font-size: 1.2rem;
+    width: 50px;
+    height: 100%;
+    background-color: #000000;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* style for the input element in the list item */
+.PaginatedList li input {
+    width: 100%;
+    height: 100%;
+    color: #000000;
+    background-color: #adc0d2;
+    font: inherit;
+    text-align: center;
+    border: none;
+    box-shadow: 1px 1px 3px black;
+    outline: none;
+    border-radius: 8px;
+}
+/* style rules to hide arrows from input field */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}

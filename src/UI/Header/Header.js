@@ -4,6 +4,7 @@ import NavigationBar from "../../Components/Navigation/NavigationBar";
 import Hero from "../Hero/Hero";
 import {connect} from 'react-redux';
 import {Route} from 'react-router-dom';
+import PaginatedList from "../PaginatedList/PaginatedList";
 
 // the Header component represents the
 // header of our page
@@ -13,7 +14,9 @@ const Header = (props) => {
     let hero = null;
     // if we don't have search operation
     if (!props.isSearch)
-        hero = <Route path="/" exact component={Hero} />
+        hero = <Route path="/movies" exact component={Hero} />
+    else
+        hero = <Route path="/movies" exact component={PaginatedList} />
     return (
         <header className={classes.Header}>
             <NavigationBar />

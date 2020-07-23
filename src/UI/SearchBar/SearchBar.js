@@ -2,6 +2,7 @@ import React from "react";
 import classes from './SearchBar.module.css';
 import {connect} from 'react-redux';
 import {fetchSearchResult, deleteSearchResult} from "../../store/actions/actions";
+import {withRouter} from "react-router";
 
 // SearchBar component represents the search bar when we can search for a specific
 // movie with specific attributes like: genre, year, rating, ...
@@ -18,8 +19,10 @@ const SearchBar = (props) =>(
                 onKeyPress={event => {
                     // if the user pressed on 'Enter' button the search will start
                     if (event.key === 'Enter')
-                        if (event.target.value !== '')
+                        if (event.target.value !== '') {
+                            props.history.push("/movies");
                             props.fetchSearchResult(event.target.value);
+                        }
                 }}
                 placeholder="type something to start search"
             />
@@ -43,4 +46,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(SearchBar);
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(SearchBar));

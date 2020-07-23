@@ -12,8 +12,8 @@ const NavigationItems = (props) => {
     // the back drop
     let backDropContent = (
         <BackDrop click={props.toggleBackDrop}>
-            <div className={classes.NavigationItemsList} style={{display: 'block'}}>
-                <NavigationItem to={"/"} name={"Home"} />
+            <div className={classes.NavigationItemsList} style={{display: 'block',width: '50px'}}>
+                <NavigationItem to={"/movies"} name={"Home"} />
             </div>
             <SearchBar style={{display: 'block'}} />
         </BackDrop>
@@ -22,14 +22,12 @@ const NavigationItems = (props) => {
     // if there is no back drop
     let content = (
             <div className={classes.NavigationItemsList} style={props.style}>
-                <NavigationItem to={"/"} name={"Home"} />
+                <NavigationItem to={"/movies"} name={"Home"} />
             </div>
     );
-
     return (
         <div className={classes.NavigationItems}>
-            <div className={classes.NavigationItemsMenu} onClick={()=>props.toggleBackDrop()}>
-                <span></span>
+            <div className={props.showBackDrop?classes.NavigationItemsMenuClose:classes.NavigationItemsMenu} onClick={()=>props.toggleBackDrop()}>
                 <span></span>
                 <span></span>
                 <span></span>

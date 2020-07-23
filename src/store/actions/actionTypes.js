@@ -12,6 +12,8 @@ const DELETE_SEARCH_RESULT = 'DELETE_SEARCH_RESULT';
 const GET_NEXT_HERO_MOVIE = 'GET_NEXT_HERO_MOVIE';
 // make the state indicate to wait for the result
 const CHANGE_TO_WAIT = 'CHANGE_TO_WAIT';
+// clear the waiting status
+const CLEAR_WAIT = "CLEAR_WAIT";
 // select a specific movie to display it's information
 const SELECT_MOVIE = 'SELECT_MOVIE';
 // toggle the back drop
@@ -26,7 +28,9 @@ const actionTypes = {
     GET_NEXT_HERO_MOVIE,
     CHANGE_TO_WAIT,
     SELECT_MOVIE,
-    TOGGLE_BACK_DROP
+    TOGGLE_BACK_DROP,
+    CLEAR_WAIT
+
 }
 
 export default actionTypes;

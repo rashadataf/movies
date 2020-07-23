@@ -7,7 +7,7 @@ import {connect} from "react-redux";
 const NavigationItem = (props) => (
     <Link to={props.to} onClick={() => {
         // if we are clicking on Home
-        if (props.to === "/") {
+        if (props.to === "/movies") {
             // if the back-drop is on make it off
             if (props.isBackDrop) {
                 props.toggleBackDrop()
