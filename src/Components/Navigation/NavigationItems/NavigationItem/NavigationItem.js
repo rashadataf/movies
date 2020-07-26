@@ -6,17 +6,14 @@ import {connect} from "react-redux";
 // a component to represent single item of the navigation items
 const NavigationItem = (props) => (
     <Link to={props.to} onClick={() => {
-        // if we are clicking on Home
-        if (props.to === "/movies") {
-            // if the back-drop is on make it off
-            if (props.isBackDrop) {
-                props.toggleBackDrop()
-            }
-            // delete the search result and back to main screen
-            props.deleteSearchResult();
-            // delete the search term from the input
-            document.querySelector('input').value = '';
+        // if the back-drop is on make it off
+        if (props.isBackDrop) {
+            props.toggleBackDrop()
         }
+        // delete the search result and back to main screen
+        props.deleteSearchResult();
+        // delete the search term from the input
+        document.querySelector('input').value = '';
     }}>{props.name}</Link>
 );
 

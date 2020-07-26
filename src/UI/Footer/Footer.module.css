@@ -2,4 +2,7 @@
 .Footer {
     background-color: var(--primary-color);
     padding: var(--global-padding);
+    font-size: 1.2rem;
+    color: black;
+    font-weight: bold;
 }

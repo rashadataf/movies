@@ -8,12 +8,19 @@ import {connect} from "react-redux";
 
 // component to represent navigation items
 const NavigationItems = (props) => {
+    let styleOfItemsList = {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-evenly',
+        height: '100px'
+    };
     // backDropContent is a variable to hold the elements will going to render inside
     // the back drop
     let backDropContent = (
         <BackDrop click={props.toggleBackDrop}>
-            <div className={classes.NavigationItemsList} style={{display: 'block',width: '50px'}}>
+            <div className={classes.NavigationItemsList} style={styleOfItemsList} >
                 <NavigationItem to={"/movies"} name={"Home"} />
+                <NavigationItem to={"/movies/about"} name={"About"} />
             </div>
             <SearchBar style={{display: 'block'}} />
         </BackDrop>
@@ -23,6 +30,7 @@ const NavigationItems = (props) => {
     let content = (
             <div className={classes.NavigationItemsList} style={props.style}>
                 <NavigationItem to={"/movies"} name={"Home"} />
+                <NavigationItem to={"/movies/about"} name={"About"} />
             </div>
     );
     return (
