@@ -20,7 +20,7 @@ const saveFetchedMoviesAndGenres = (movies, genres) => {
 
 // async function to fetch the movies and genres from the server
 export const fetchHomeMovies = () => {
-    return dispatch =>  {
+    return dispatch => {
         // movies_url holds the url string
         // it depend's on API
         let movies_url = `${api.BASE_API_URL}/movie/popular${api.API_KEY}&page=1`;
@@ -80,7 +80,7 @@ export const fetchSearchResult = (searchTerm, searchPage = 1) => {
         // init url with null
         let url = null;
         // if we have some thing to search for
-        if (searchTerm){
+        if (searchTerm) {
             url = `${api.BASE_API_URL}/search/movie${api.API_KEY}&language=en-US&query=${searchTerm}&page=${searchPage}`;
             // fetch the results from the url we have
             fetch(url)
@@ -88,15 +88,21 @@ export const fetchSearchResult = (searchTerm, searchPage = 1) => {
                 .then(response => {
                     // if we have results to show
                     // update the state of searchedMovies with the results we get
-                    if (response.results.length > 0)
-                        dispatch(saveFetchedSearchResult(response.results,searchTerm,response.total_pages,searchPage));
-                    // if we have nothing as a search result
-                    // clear the waiting status
-                    // clear any previous search results
+                    if (response.results !== undefined)
+                        if (response.results.length > 0)
+                            dispatch(saveFetchedSearchResult(response.results, searchTerm, response.total_pages, searchPage));
+                            // if we have nothing as a search result
+                            // clear the waiting status
+                        // clear any previous search results
+                        else {
+                            dispatch(clearWait())
+                            dispatch(deleteSearchResult())
+                        }
                     else {
                         dispatch(clearWait())
                         dispatch(deleteSearchResult())
                     }
+
                 })
         }
     }
@@ -131,5 +137,55 @@ export const selectMovie = (movie) => {
 export const toggleBackDrop = () => {
     return {
         type: actionTypes.TOGGLE_BACK_DROP
+    }
+}
+
+// function to show/hide the browse element
+export const toggleBrowseMovies = () => {
+    return {
+        type: actionTypes.TOGGLE_BROWSE_MOVIES
+    }
+}
+
+// save the fetched result of browse search to state
+const saveFetchedBrowseResult = (movies, searchTerm, total_pages, searchPage) => {
+    return {
+        type: actionTypes.FETCH_BROWSE_RESULT,
+        payload: {
+            searchResult: movies,
+            searchTerm: searchTerm,
+            totalSearchPages: total_pages,
+            searchPage: searchPage
+        }
+    }
+}
+
+// async function to fetch the result of the browse search from the server
+export const fetchBrowseResult = (searchTerm, searchPage = 1) => {
+    return dispatch => {
+        // make the loading is true
+        dispatch(changToWait());
+        // init url with null
+        let url = null;
+        // if we have some thing to search for
+        if (searchTerm) {
+            url = `${api.BASE_API_URL}/discover/movie${api.API_KEY}&language=en-US${searchTerm}&page=${searchPage}`;
+            // fetch the results from the url we have
+            fetch(url)
+                .then(response => response.json())
+                .then(response => {
+                    // if we have results to show
+                    // update the state of searchedMovies with the results we get
+                    if (response && response.results.length > 0)
+                        dispatch(saveFetchedBrowseResult(response.results, searchTerm, response.total_pages, searchPage));
+                        // if we have nothing as a search result
+                        // clear the waiting status
+                    // clear any previous search results
+                    else {
+                        dispatch(clearWait())
+                        dispatch(deleteSearchResult())
+                    }
+                })
+        }
     }
 }

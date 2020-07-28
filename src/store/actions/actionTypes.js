@@ -18,6 +18,10 @@ const CLEAR_WAIT = "CLEAR_WAIT";
 const SELECT_MOVIE = 'SELECT_MOVIE';
 // toggle the back drop
 const TOGGLE_BACK_DROP = 'TOGGLE_BACK_DROP';
+// browse movies
+const TOGGLE_BROWSE_MOVIES = 'TOGGLE_BROWSE_MOVIES';
+// fetch browse result
+const FETCH_BROWSE_RESULT = 'FETCH_BROWSE_RESULT';
 
 // make all the types in one object and export it
 const actionTypes = {
@@ -29,7 +33,9 @@ const actionTypes = {
     CHANGE_TO_WAIT,
     SELECT_MOVIE,
     TOGGLE_BACK_DROP,
-    CLEAR_WAIT
+    CLEAR_WAIT,
+    TOGGLE_BROWSE_MOVIES,
+    FETCH_BROWSE_RESULT
 
 }
 

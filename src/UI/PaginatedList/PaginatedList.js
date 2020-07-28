@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import classes from './PaginatedList.module.css';
 import {connect} from "react-redux";
-import {fetchSearchResult} from "../../store/actions/actions";
+import {fetchBrowseResult, fetchSearchResult} from "../../store/actions/actions";
 
 // Component to represent the list of pages numbers
 const PaginatedList = (props) => {
@@ -17,9 +17,21 @@ const PaginatedList = (props) => {
     // list of elements to draw
     let listToDraw = [];
     // prev represent list item that will be added as a previous button
-    let prev = <li key="Prev" onClick={() => props.fetchNextMovies(props.searchTerm, props.currentPage - 1)}>Prev</li>;
+    let prev = <li key="Prev" onClick={() => {
+        if (!props.searchTerm.includes("&"))
+            props.fetchNextMovies(props.searchTerm, props.currentPage - 1)
+        else
+            props.fetchNextBrowseMovies(props.searchTerm, props.currentPage - 1)
+    }
+    }>Prev</li>;
     // next represent list item that will be added as a next button
-    let next = <li key="Next" onClick={() => props.fetchNextMovies(props.searchTerm, props.currentPage + 1)}>Next</li>;
+    let next = <li key="Next" onClick={() => {
+        if (!props.searchTerm.includes("&"))
+            props.fetchNextMovies(props.searchTerm, props.currentPage + 1)
+        else
+            props.fetchNextBrowseMovies(props.searchTerm, props.currentPage + 1)
+    }
+    }>Next</li>;
     // currentPage will hold the value of the current page
     let currentPage = props.currentPage;
     // if we are not in the first page add the prev button to the list
@@ -37,14 +49,19 @@ const PaginatedList = (props) => {
                     let page = parseInt(event.target.value);
                     // if the input value in the range [1, max_value_of_search_result_pages]
                     if (page > 0 && page <= numOfPages)
-                        props.fetchNextMovies(props.searchTerm, page);
+                        if (props.searchTerm.includes("&"))
+                            props.fetchNextBrowseMovies(props.searchTerm, page);
+                        else
+                            props.fetchNextMovies(props.searchTerm, page);
                     // if the input value < 1
                     if (page < 1) {
                         // if we are on the first page just replace the input value with 1
                         if (currentPage === 1)
                             event.target.value = 1;
-                        // else if we are on any page that is not the first page
+                            // else if we are on any page that is not the first page
                         // go to the first page
+                        else if (props.searchTerm.includes("&"))
+                            props.fetchNextBrowseMovies(props.searchTerm, 1);
                         else
                             props.fetchNextMovies(props.searchTerm, 1);
                     }
@@ -54,6 +71,8 @@ const PaginatedList = (props) => {
                         if (currentPage === numOfPages)
                             event.target.value = numOfPages;
                         // else go to the last page
+                        else if (props.searchTerm.includes("&"))
+                            props.fetchNextBrowseMovies(props.searchTerm, numOfPages);
                         else
                             props.fetchNextMovies(props.searchTerm, numOfPages);
                     }
@@ -65,7 +84,7 @@ const PaginatedList = (props) => {
         listToDraw.push(next)
 
     return (
-        <ul className={classes.PaginatedList}>
+        <ul className={classes.PaginatedList} style={props.isBrowse ? {top: '35vh'} : null}>
             {listToDraw}
         </ul>
     );
@@ -76,7 +95,8 @@ const mapStateToProps = state => {
     return {
         currentPage: state.searchPage,
         numOfPages: state.totalSearchPages,
-        searchTerm: state.searchTerm
+        searchTerm: state.searchTerm,
+        isBrowse: state.isBrowse
     }
 }
 
@@ -84,7 +104,8 @@ const mapStateToProps = state => {
 // and push it to the props
 const mapDispatchToProps = dispatch => {
     return {
-        fetchNextMovies: (term, page) => dispatch(fetchSearchResult(term, page))
+        fetchNextMovies: (term, page) => dispatch(fetchSearchResult(term, page)),
+        fetchNextBrowseMovies: (term, page) => dispatch(fetchBrowseResult(term, page))
     }
 }
 

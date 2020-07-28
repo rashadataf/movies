@@ -32,7 +32,7 @@ const MovieDetails = (props) => {
 
         // create the array of genres
         for (let i = 0;i < props.movie.genre_ids.length; i++){
-            props.genres.map(genre => {
+            props.genres.forEach(genre => {
                 if (props.movie.genre_ids[i] === genre.id)
                     genres.push(genre.name)
             })

@@ -1,8 +1,9 @@
 import React from "react";
 import classes from './SearchBar.module.css';
 import {connect} from 'react-redux';
-import {fetchSearchResult, deleteSearchResult} from "../../store/actions/actions";
+import {fetchSearchResult, deleteSearchResult, toggleBrowseMovies} from "../../store/actions/actions";
 import {withRouter} from "react-router";
+import BrowseMovies from "../../Components/BrowseMovies/BrowseMovies";
 
 // SearchBar component represents the search bar when we can search for a specific
 // movie with specific attributes like: genre, year, rating, ...
@@ -26,6 +27,7 @@ const SearchBar = (props) =>(
                 }}
                 placeholder="type something to start search"
             />
+            {props.isBackDrop?<BrowseMovies style={{position: 'relative'}} />:<button onClick={props.toggleBrowse}>Browse</button>}
         </div>
 );
 
@@ -42,7 +44,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchSearchResult: (searchTerm) => dispatch(fetchSearchResult(searchTerm)),
-        deleteSearchResult: () => dispatch(deleteSearchResult())
+        deleteSearchResult: () => dispatch(deleteSearchResult()),
+        toggleBrowse: () => dispatch(toggleBrowseMovies())
     }
 }
 

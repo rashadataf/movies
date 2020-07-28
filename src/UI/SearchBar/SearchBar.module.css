@@ -1,9 +1,10 @@
 /* style for the search bar container */
 .SearchBar {
-    width: 40%;
+    width: 45%;
     text-align: right;
     position: relative;
     margin-left: 10vw;
+    display: flex;
 }
 
 /* style for the input element in search bar */
@@ -20,6 +21,21 @@
     text-align: center;
 }
 
+.SearchBar button {
+    padding: 8px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: #2d2236;
+    color: #43b8e7;
+    font-weight: bold;
+}
+
+.SearchBar button:hover {
+    background-color: #140221;
+    cursor: pointer;
+}
+
 /* media screen for small screens to control font size */
 @media screen and (max-width: 420px) {
     .SearchBar input {
@@ -29,10 +45,14 @@
 
 
 /* media for small screens */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .SearchBar {
         display: none;
         width: 80%;
         padding: 0 !important;
+    }
+
+    .SearchBar button {
+        margin-top: 16px;
     }
 }

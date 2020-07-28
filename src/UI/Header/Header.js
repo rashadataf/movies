@@ -5,6 +5,7 @@ import Hero from "../Hero/Hero";
 import {connect} from 'react-redux';
 import {Route} from 'react-router-dom';
 import PaginatedList from "../PaginatedList/PaginatedList";
+import BrowseMovies from "../../Components/BrowseMovies/BrowseMovies";
 
 // the Header component represents the
 // header of our page
@@ -12,6 +13,9 @@ import PaginatedList from "../PaginatedList/PaginatedList";
 const Header = (props) => {
     // variable to hold the hero image
     let hero = null;
+    let browse = null;
+    if (props.isBrowse)
+        browse = <BrowseMovies />
     // if we don't have search operation
     if (!props.isSearch)
         hero = <Route path="/movies" exact component={Hero} />
@@ -20,6 +24,7 @@ const Header = (props) => {
     return (
         <header className={classes.Header}>
             <NavigationBar />
+            {browse}
             {hero}
         </header>
     );
@@ -27,7 +32,8 @@ const Header = (props) => {
 
 const mapStateToProps = state => {
     return {
-        isSearch: state.isSearch
+        isSearch: state.isSearch,
+        isBrowse: state.isBrowse
     }
 }
 

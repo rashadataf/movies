@@ -36,7 +36,12 @@ const Hero = (props) => {
         timer = setTimeout(() => {
         props.getNextHeroMovie();
     },1000)
-        // path = `${IMAGE_BASE_URL}${IMAGE_BACKDROP_SIZE}/${props.currentMovie.movie.backdrop_path}`;
+    // check if there is browse clear the margin top from the hero
+    if (props.isBrowse)
+        style = {
+        ...style,
+            marginTop: '20vh'
+        }
     return (
         <div className={classes.Hero} style={style}>
             <div className={classes.HeroDetails}>
@@ -50,7 +55,8 @@ const Hero = (props) => {
 // function to get the current movie from the store and push it to the props
 const mapStateToProps = state => {
     return {
-        currentMovie: state.heroMovie
+        currentMovie: state.heroMovie,
+        isBrowse: state.isBrowse
     }
 }
 

@@ -22,7 +22,7 @@ const About = () => (
             </ul>
             <p>
                 To get more details about the developing process please visit my GitHub account :
-                <a href={"https://github.com/rashadataf/movies"} target={"_blank"}>rashad-ataf</a>
+                <a href={"https://github.com/rashadataf/movies"} target={"_blank"} rel="noopener noreferrer">rashad-ataf</a>
             </p>
             <p>please enjoy.</p>
         </div>
@@ -31,7 +31,7 @@ const About = () => (
             <p>The main idea for this project is by me <a href={"mailto:rashadattaf@gmail.com"}>Rashad Ataf</a>.</p>
             <p>The logo was designed and the colors were chosen by : <a href={"mailto:ali.ak.kordi@gmail.com"}>Ali Kordi</a></p>
             <p>API used to fetch movie's details by <a href={"https://www.themoviedb.org/"}
-                                                       target={"_blank"}>themoviedb</a></p>
+                                                       target={"_blank"} rel="noopener noreferrer">themoviedb</a></p>
         </div>
     </div>
 );

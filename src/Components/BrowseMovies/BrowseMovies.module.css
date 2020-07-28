@@ -1,0 +1,97 @@
+/* style the browse movies element */
+.BrowseMovies {
+    padding: 8px;
+    position: fixed;
+    top: 10vh;
+    left: 0;
+    height: 25vh;
+    background-color: #112233;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 4;
+}
+
+/* style for the groups inside the browse movies element */
+.BrowseMoviesGroups {
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+}
+
+/* style for each group */
+.BrowseMoviesGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70%;
+}
+
+/* style the select element */
+select {
+    outline: none;
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+    background-color: #062831; /* Fallback color if gradients are not supported */
+    background-position: center right;
+    background-repeat: no-repeat;
+    border: 1px solid #AAA;
+    border-radius: 2px;
+    box-shadow: 0px 1px 90px rgb(18, 227, 210);
+    color: #ffffff;
+    font-size: inherit;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* style the button */
+.BrowseMovies button {
+    background-color: #0a950a;
+    border: none;
+    outline: none;
+    padding: 8px;
+    margin: 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #021c52;
+    font-size: 1rem;
+}
+
+/* media query for medium screens */
+@media screen and (max-width: 600px) {
+    select {
+        -webkit-padding-end: 10px;
+        -moz-padding-end: 10px;
+        font-size: .7rem;
+    }
+}
+
+/* media query for small screens */
+@media screen and (max-width: 480px) {
+
+    .BrowseMoviesGroups {
+        flex-wrap: wrap;
+    }
+
+    .BrowseMoviesGroup {
+        width: 40%;
+        margin-bottom: 16px;
+    }
+
+    .BrowseMoviesGroup label {
+        font-size: .8rem;
+    }
+
+    .BrowseMovies button {
+        margin: 0;
+        font-size: .9rem;
+        padding: 4px;
+    }
+}

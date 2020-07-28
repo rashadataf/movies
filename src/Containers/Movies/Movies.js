@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import Movie from "../../Components/Movie/Movie";
 import classes from './Movies.module.css';
 import {connect} from 'react-redux';
-import {fetchHomeMovies, selectMovie, toggleBackDrop} from "../../store/actions/actions";
+import {fetchHomeMovies, selectMovie, toggleBackDrop, toggleBrowseMovies} from "../../store/actions/actions";
 import Spinner from "../../UI/Spinner/Spinner";
 import {withRouter} from 'react-router-dom';
 
@@ -25,6 +25,9 @@ class Movies extends Component {
                     this.props.toggleBackDrop()
                 }
             }
+            else
+                if (this.props.isBrowse)
+                    this.props.toggleBrowseMovies()
         })
     }
 
@@ -36,7 +39,7 @@ class Movies extends Component {
         // loop through the array of movies in our props
         // if the array is not null
         if (source_movies)
-            source_movies.map(movie => {
+            source_movies.forEach(movie => {
                 // temp array to hold the genres for each movie
                 let movie_genres = [];
                 // loop through the genres id's for each movie
@@ -89,7 +92,7 @@ class Movies extends Component {
         else
             draw = this.moviesToDraw();
         return (
-            <div className={classes.Movies}>
+            <div className={classes.Movies} style={this.props.isBrowse?{marginTop:'40vh'}:null}>
                 {
                     draw
                 }
@@ -106,7 +109,8 @@ const mapStateToProps = state => {
         searchResult: state.searchResult,
         isSearch: state.isSearch,
         isLoading: state.isLoading,
-        isBackDrop: state.isBackDrop
+        isBackDrop: state.isBackDrop,
+        isBrowse: state.isBrowse
     }
 }
 
@@ -116,7 +120,8 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchHomeMovies: () => dispatch(fetchHomeMovies()),
         selectMovie: (movie) => dispatch(selectMovie(movie)),
-        toggleBackDrop: () => dispatch(toggleBackDrop())
+        toggleBackDrop: () => dispatch(toggleBackDrop()),
+        toggleBrowseMovies: () => dispatch(toggleBrowseMovies())
     }
 }
 

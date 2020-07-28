@@ -15,7 +15,8 @@ const initialState = {
         movieIndex: -1
     },
     isLoading: true,
-    isBackDrop: false
+    isBackDrop: false,
+    isBrowse: false
 }
 
 // the reducer function which will handle the different types of actions
@@ -93,6 +94,25 @@ const moviesReducer = (state = initialState, action) => {
                 isBackDrop: isDrop
             }
         }
+        case actionTypes.TOGGLE_BROWSE_MOVIES :
+        {
+            let isBrowse = !state.isBrowse
+            return {
+                ...state,
+                isBrowse: isBrowse
+            }
+        }
+        case actionTypes.FETCH_BROWSE_RESULT :
+            return {
+                ...state,
+                searchResult: action.payload.searchResult,
+                searchTerm: action.payload.searchTerm,
+                totalSearchPages: action.payload.totalSearchPages,
+                searchPage: action.payload.searchPage,
+                isSearch: true,
+                isLoading: false,
+                isBackDrop: false
+            }
         default:
             return state;
     }

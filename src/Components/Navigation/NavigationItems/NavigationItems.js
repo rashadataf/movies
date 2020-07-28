@@ -22,7 +22,7 @@ const NavigationItems = (props) => {
                 <NavigationItem to={"/movies"} name={"Home"} />
                 <NavigationItem to={"/movies/about"} name={"About"} />
             </div>
-            <SearchBar style={{display: 'block'}} />
+            <SearchBar style={{display: 'flex',flexDirection: 'column',alignItems: 'center'}} />
         </BackDrop>
     );
     // content element is a variable to hold the elements will be draw
